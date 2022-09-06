@@ -129,8 +129,7 @@ pipeline {
                               docker rmi "devsecops/app:production" || true
                            '''
                         },
-                  db:   { // Parallely start the MySQL Daemon in the staging server first stop if already running then start
-                        sh '''
+                  db:   { // Parallely start the MySQL Daemon in the staging server first stop if already running then start .
                               docker build --no-cache -t "devsecops/db:production" -f docker/db/Dockerfile .
                               docker tag "devsecops/db:production" "${DOCKER_REGISTRY}/devsecops/db:production"
                               docker push "${DOCKER_REGISTRY}/devsecops/db:production"
