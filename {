@@ -1,155 +1,0 @@
-Script started on Tue Sep  6 07:34:12 2022
-        currentBuild.result = 'FAILURE'
-      }
-    }
-    always {
-          step([$class: 'Mailer', notifyEveryUnstableBuild: true,recipients: "build-failed@devops.local",sendToIndividuals: true])
-          step([$class: 'WsCleanup'])
-    }
-  }
-}root@9b0ea7ca84f7:/home/project/code#         currentBuild.result = 'FAILURE'
-bash: currentBuild.result: command not found
-root@9b0ea7ca84f7:/home/project/code#       }
-bash: syntax error near unexpected token `}'
-root@9b0ea7ca84f7:/home/project/code#     }
-bash: syntax error near unexpected token `}'
-root@9b0ea7ca84f7:/home/project/code#     always {
-bash: always: command not found
-root@9b0ea7ca84f7:/home/project/code#           step([$class: 'Mailer', notifyEveryUnstableBuild: true,recipients: "build-failed@devops.local",sendTToIndividuals: true])
-bash: syntax error near unexpected token `[$class:'
-root@9b0ea7ca84f7:/home/project/code#           step([$class: 'WsCleanup'])
-bash: syntax error near unexpected token `[$class:'
-root@9b0ea7ca84f7:/home/project/code#     }
-bash: syntax error near unexpected token `}'
-root@9b0ea7ca84f7:/home/project/code#   }
-bash: syntax error near unexpected token `}'
-root@9b0ea7ca84f7:/home/project/code# }^C
-root@9b0ea7ca84f7:/home/project/code#   }  }      step([$class: 'WsCleanup'])Mailer', notifyEveryUnstableBuild: true,recipients: "build-failed@devops.local",sendTToIndividuals: true])^C
-root@9b0ea7ca84f7:/home/project/code# docker images
-REPOSITORY                     TAG                    IMAGE ID            CREATED             SIZE
-localhost:6000/devsecops/app   production             5a569ac11a6f        27 minutes ago      703MB
-localhost:6000/devsecops/db    production             fd989cd80269        27 minutes ago      545MB
-devsecops/app                  staging                21e0025adf1f        28 minutes ago      703MB
-localhost:6000/devsecops/app   staging                21e0025adf1f        28 minutes ago      703MB
-localhost:6000/devsecops/db    staging                692a08d235e6        28 minutes ago      545MB
-localhost:6000/devsecops/app   <none>                 df48c89dbaf9        44 minutes ago      703MB
-localhost:6000/devsecops/db    <none>                 51ac94230553        44 minutes ago      545MB
-localhost:6000/devsecops/app   <none>                 9e2260b916c1        About an hour ago   703MB
-localhost:6000/devsecops/db    <none>                 87ff38c13279        About an hour ago   545MB
-tomcat                         9.0.62                 5e9a4d049871        3 months ago        680MB
-ide_ide                        latest                 07256adf14cb        12 months ago       2.46GB
-theiaide/theia-python          1.16.0                 7d0a509f0c1f        12 months ago       2.12GB
-tomcat                         9-jdk11-openjdk-slim   3f4d34e3b3e7        20 months ago       423MB
-mysql                          latest                 d4c3cafb11d5        20 months ago       545MB
-waf_nginx                      latest                 a29d402983e7        2 years ago         225MB
-nginx                          1.17.9-alpine          377c0837328f        2 years ago         19.7MB
-registry                       2                      708bc6af7e5e        2 years ago         25.8MB
-root@9b0ea7ca84f7:/home/project/code# docker exec -it 5a569ac11a6f bash
-Error: No such container: 5a569ac11a6f
-root@9b0ea7ca84f7:/home/project/code# docker ps
-CONTAINER ID        IMAGE                                     COMMAND                  CREATED             STATUS              PORTS                               NAMES
-90d83d46f5c3        localhost:6000/devsecops/app:production   "catalina.sh run"        22 minutes ago      Up 22 minutes       0.0.0.0:8060->8080/tcp              prodapp
-5cddd16e5f2c        localhost:6000/devsecops/db:production    "docker-entrypoint.s…"   27 minutes ago      Up 27 minutes       0.0.0.0:3306->3306/tcp, 33060/tcp   prodmysqldb
-859de781fe16        localhost:6000/devsecops/app:staging      "catalina.sh run"        28 minutes ago      Up 28 minutes       0.0.0.0:8050->8080/tcp              stgapp
-916ab9754cb3        localhost:6000/devsecops/db:staging       "docker-entrypoint.s…"   28 minutes ago      Up 28 minutes       33060/tcp, 0.0.0.0:3305->3306/tcp   stgmysqldb
-f750331cd046        waf_nginx                                 "/bin/sh -c 'nginx -…"   About an hour ago   Up About an hour    443/tcp, 0.0.0.0:8070->80/tcp       production_nginx
-9b0ea7ca84f7        ide_ide                                   "node /home/theia/sr…"   11 months ago       Up 9 hours          0.0.0.0:3000->3000/tcp              theia_ide
-79203149f607        registry:2                                "/entrypoint.sh /etc…"   2 years ago         Up 9 hours          6000/tcp, 0.0.0.0:6000->5000/tcp    registry
-root@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# docker ps
-CONTAINER ID        IMAGE                                     COMMAND                  CREATED             STATUS              PORTS                               NAMES
-90d83d46f5c3        localhost:6000/devsecops/app:production   "catalina.sh run"        About an hour ago   Up About an hour    0.0.0.0:8060->8080/tcp              prodapp
-5cddd16e5f2c        localhost:6000/devsecops/db:production    "docker-entrypoint.s…"   2 hours ago         Up 2 hours          0.0.0.0:3306->3306/tcp, 33060/tcp   prodmysqldb
-859de781fe16        localhost:6000/devsecops/app:staging      "catalina.sh run"        2 hours ago         Up 2 hours          0.0.0.0:8050->8080/tcp              stgapp
-916ab9754cb3        localhost:6000/devsecops/db:staging       "docker-entrypoint.s…"   2 hours ago         Up 2 hours          33060/tcp, 0.0.0.0:3305->3306/tcp   stgmysqldb
-f750331cd046        waf_nginx                                 "/bin/sh -c 'nginx -…"   2 hours ago         Up 2 hours          443/tcp, 0.0.0.0:8070->80/tcp       production_nginx
-9b0ea7ca84f7        ide_ide                                   "node /home/theia/sr…"   11 months ago       Up 10 hours         0.0.0.0:3000->3000/tcp              theia_ide
-79203149f607        registry:2                                "/entrypoint.sh /etc…"   2 years ago         Up 10 hours         6000/tcp, 0.0.0.0:6000->5000/tcp    registry
-root@9b0ea7ca84f7:/home/project/code# clear
-[H[2Jroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# git add .
-root@9b0ea7ca84f7:/home/project/code# f git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-	[32mmodified:   src/main/webapp/WEB-INF/content/home.jsp[m
-	[32mnew file:   {[m
-
-root@9b0ea7ca84f7:/home/project/code# git commit -m "changed"
-[master 025e777] changed
- 2 files changed, 110 insertions(+), 1 deletion(-)
- create mode 100644 {
-root@9b0ea7ca84f7:/home/project/code# git push
-Counting objects: 9, done.
-Delta compression using up to 2 threads.
-Compressing objects:  12% (1/8)   Compressing objects:  25% (2/8)   Compressing objects:  37% (3/8)   Compressing objects:  50% (4/8)   Compressing objects:  62% (5/8)   Compressing objects:  75% (6/8)   Compressing objects:  87% (7/8)   Compressing objects: 100% (8/8)   Compressing objects: 100% (8/8), done.
-Writing objects:  11% (1/9)   Writing objects:  22% (2/9)   Writing objects:  33% (3/9)   Writing objects:  44% (4/9)   Writing objects:  55% (5/9)   Writing objects:  66% (6/9)   Writing objects:  77% (7/9)   Writing objects:  88% (8/9)   Writing objects: 100% (9/9)   Writing objects: 100% (9/9), 1.83 KiB | 0 bytes/s, done.
-Total 9 (delta 5), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/5)[Kremote: Resolving deltas:  20% (1/5)[Kremote: Resolving deltas:  40% (2/5)[Kremote: Resolving deltas:  60% (3/5)[Kremote: Resolving deltas:  80% (4/5)[Kremote: Resolving deltas: 100% (5/5)[Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
-To github.com:sasidhardhulipala/sec.git
-   f2216f7..025e777  master -> master
-root@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# curl https://raw.githubusercontent.com/thoughtworks/talisman/master/global_install_scripts/install.bash > ~/innstall-talisman.sh
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 17777  100 17777    0     0   720k      0 --:--:-- --:--:-- --:--:--  723k
-root@9b0ea7ca84f7:/home/project/code# chmod +x ~/install-talisman.sh
-root@9b0ea7ca84f7:/home/project/code# ~/install-talisman.sh
-Downloading talisman binary
-talisman_linux_amd64: OK
-
-
-Setting up talisman binary and helper script in /home/theia/.talisman
-Setting up TALISMAN_HOME in path
-
-
-PLEASE CHOOSE WHERE YOU WISH TO SET TALISMAN_HOME VARIABLE AND talisman binary PATH (Enter option number): 
-1) Set TALISMAN_HOME in ~/.bashrc
-2) Set TALISMAN_HOME in ~/.bash_profile
-3) Set TALISMAN_HOME in ~/.profile
-4) I will set it later
-#? Please enter root directory to search for git repos (Default: /root): /home/project/
-invalid option Please enter root directory to search for git repos (Default: /root): /home/project/
-#? /home/project/
-invalid option /home/project/
-#? 4
-You chose to set TALISMAN_HOME and binary path by yourself. Remember to set TALISMAN_HOME=/home/theia/.talisman/bin and alias talisman =/home/theia/.talisman/bin/talisman_linux_amd64\n\n
-Setting up pre-commit hook in git template directory
-No git template directory is configured. Let's add one.
-(this will override any system git templates and modify your git config file)
-
-Git template directory: (/home/theia/.git-template) Please enter root directory to search for git repos (Default: /.
-Delta compression using up to 2 threads.
-Compressing objects:  12% (1/8)   Compressing objects:  25% (2/8)   Compressing objects:  37% (3/8)   Compressing objects:  50% (4/8)   Compressing objects:  62% (5/8)   Compressing objects:  75% (6/8)   Compressing objects:  87% (7/8)   Compressing objects: 100% (8/8)   Compressing objects: 100% (8/8), done.
-Writing objects:  11% (1/9)   Writing objects:  22% (2/9)   Writing objects:  33% (3/9)   Writing objects:  44% (4/9)   Writing objects:  55% (5/9)   Writing objects:  66% (6/9)   Writing objects:  77% (7/9)   Writing objects:  88% (8/9)   Writing objects: 100% (9/9)   Writing objects: 100% (9/9), 1.83 KiB | 0 bytes/s, done.
-Total 9 (delta 5), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/5)[Kremote: Resolving deltas:  20% (1/5)[Kremote: Resolving deltas:  40% (2/5)[Kremote: Resolving deltas:  60% (3/5)[Kremote: Resolving deltas:  80% (4/5)[Kremote: Resolving deltas: 100% (5/5)[Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
-To github.com:sasidhardhulipala/sec.git
-   f2216f7..025e777  master -> master
-root@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# [Kroot@9b0ea7ca84f7:/home/project/code# curl https://raw.githubusercontent.com/thoughtworks/talisman/master/global_install_scripts/install.bash > ~/innstall-talisman.sh
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 17777  100 17777    0     0   720k      0 --:--:-- --:--:-- --:--:--  723k
-root@9b0ea7ca84f7:/home/project/code# chmod +x ~/install-talisman.sh
-root@9b0ea7ca84f7:/home/project/code# ~/install-talisman.sh
-Downloading talisman binary
-talisman_linux_amd64: OK
-
-
-Setting up talisman binary and helper script in /home/theia/.talisman
-Setting up TALISMAN_HOME in path
-
-
-PLEASE CHOOSE WHERE YOU WISH TO SET TALISMAN_HOME VARIABLE AND talisman binary PATH (Enter option number): 
-1) Set TALISMAN_HOME in ~/.bashrc
-2) Set TALISMAN_HOME in ~/.bash_profile
-3) Set TALISMAN_HOME in ~/.profile
-4) I will set it later
-#? Please enter root directory to search for git repos (Default: /root): /home/project/
-invalid option Please enter root directory to search for git repos (Default: /root): /home/project/
-#? /home/project/
-invalid option /home/project/
-#? 4
-You chose to set TALISMAN_HOME and binary path by yourself. Remember to set TALISMAN_HOME=/home/theia/.talisman/bin and alias talisman =/home/theia/.talisman/bin/talisman_linux_amd64\n\n
-Setting up pre-commit hook in git template directory
-No git template directory is configured. Let's add one.
-(this will override any system git temp

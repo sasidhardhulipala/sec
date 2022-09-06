@@ -1,0 +1,6 @@
+fileignoreconfig:
+- filename: aws.key
+  checksum: e07380852cf7f5f64b57578c774d350de4f938d31e52b7ce099bc7209984a9eb
+
+custom_patterns:
+- token
