@@ -54,7 +54,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'archerysec', passwordVariable: 'ARCHERY_PASS', usernameVariable: 'ARCHERY_USER')]) {
                 sh '''
                   export COMMIT_ID=`cat .git/HEAD`
-                  export DCHIGH=60
+                  export DCHIGH=25
                   export DCMEDIUM=100
                   ls
                   dependency-check --noupdate --project "Devsecops" --scan target/*.war -f XML --disableOssIndex -o $WORKSPACE/reports/dependency-check.xml
