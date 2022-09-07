@@ -24,8 +24,8 @@ public class StudentAddApi extends ActionSupport implements ServletResponseAware
 	protected HttpServletResponse servletResponse;
 	DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
 
-//	VULNERABLE CODE
-//	@Action("/api/add")
+//	// VULNERABLE CODE
+//	// @Action("/api/add")
 // 	public String execute() throws Exception {
 // 		System.out.println("Inside Student Add");
 // 		StudentService studentService = new StudentService();

@@ -30,7 +30,7 @@ public class SerializeObject {
 		return Base64Utils.encode(baos.toByteArray());
 	}
 
-// VULNERABLE CODE
+// // VULNERABLE CODE
 	//  public static Object stringToObject(String s) {
 
 	//  	byte[] data = Base64Utils.decodeByte(s);
