@@ -38,7 +38,7 @@ public class StudentService {
         return result;
     }
 
-    public List<Student> studentList(){
+    public List<Student> studentList(){ 
         return studentRepository.list();
     }
 
