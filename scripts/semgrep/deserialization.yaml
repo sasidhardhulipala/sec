@@ -6,7 +6,7 @@ rules:
     cwe: "CWE-502"
     owasp: "A8:2017-Insecure Deserialization"
     source-rule-url: https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html
-  severity: WARNING
+  severity: ERROR
   patterns:
   - pattern-either:
     - pattern: |
