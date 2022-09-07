@@ -18,7 +18,8 @@
             <include>Language.XML</include>
             <include>OS</include>
             <include>OS.Linux</include>
-             <include>SCM</include>
+            <include>OS.Windows</include>
+            <include>SCM</include>
             <include>SCM.Git</include>
             <include>SCM.SVN</include>
             <include>WS</include>
