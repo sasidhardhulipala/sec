@@ -13,7 +13,7 @@
 # This file is part of DevSecOps Training.
 
 #FROM tomcat:9
-FROM tomcat:9.0.62
+FROM tomcat:9.0-jdk11-openjdk-slim
 ADD ./target/ROOT.war /usr/local/tomcat/webapps/
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
